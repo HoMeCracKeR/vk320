@@ -1,0 +1,1454 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="6254"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="Voe-Tx-rLC" id="GzC-gU-4Uq"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customObject id="Voe-Tx-rLC" customClass="RSAppDelegate">
+            <connections>
+                <outlet property="sheet" destination="k56-0Q-D7U" id="LuS-iB-NCb"/>
+                <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
+            </connections>
+        </customObject>
+        <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
+            <items>
+                <menuItem title="VK320" id="1Xt-HY-uBw">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="VK320" systemMenu="apple" id="uQy-DD-JDr">
+                        <items>
+                            <menuItem title="О программе VK320" id="5kV-Vb-QxS">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="orderFrontStandardAboutPanel:" target="-1" id="Exp-CZ-Vem"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Поблагодарить" id="XxU-6n-zdb">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="sayThanx:" target="QvC-M9-y7g" id="Daq-l4-G7t"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
+                            <menuItem title="Настройки" keyEquivalent="," id="vzl-IN-x7P">
+                                <connections>
+                                    <action selector="activateSheet:" target="Voe-Tx-rLC" id="jMR-rY-dPi"/>
+                                    <binding destination="Voe-Tx-rLC" name="enabled" keyPath="self.optionsMenuEnabled" id="taf-ya-hZ9"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Проверить обновления" id="1UI-F9-ykA">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="checkUpdates:" target="QvC-M9-y7g" id="qhf-oT-Kuf"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
+                            <menuItem title="Выход из VK320" keyEquivalent="q" id="4sb-4s-VLi">
+                                <connections>
+                                    <action selector="terminate:" target="-1" id="Te7-pn-YzF"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Правка" id="ef3-vz-uab">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Правка" id="seV-cO-KRc">
+                        <items>
+                            <menuItem title="Отменить" keyEquivalent="z" id="PYt-bY-Z6M">
+                                <connections>
+                                    <action selector="undo:" target="-1" id="OQx-N1-1Rp"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Повторить" keyEquivalent="Z" id="hfc-Eu-wP7">
+                                <connections>
+                                    <action selector="redo:" target="-1" id="5a4-zA-Swx"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="5dA-3H-qQB"/>
+                            <menuItem title="Вырезать" keyEquivalent="x" id="Uvq-GJ-Fbi">
+                                <connections>
+                                    <action selector="cut:" target="-1" id="dNN-l5-VsO"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Скопировать" keyEquivalent="c" id="mBZ-PU-afB">
+                                <connections>
+                                    <action selector="copy:" target="-1" id="jJd-tV-Psz"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Вставить" keyEquivalent="v" id="8oP-Q1-fRs">
+                                <connections>
+                                    <action selector="paste:" target="-1" id="8Rr-ni-yEg"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Выбрать все" keyEquivalent="a" id="gZC-12-MRX">
+                                <connections>
+                                    <action selector="selectAll:" target="-1" id="w1t-97-I5l"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Поиск" id="oIs-oV-uUh">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Поиск" id="vVy-od-qJH">
+                        <items>
+                            <menuItem title="По ссылке" id="jwp-GA-lR1">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="clickLinkInfo:" target="QvC-M9-y7g" id="4sw-w8-MW5"/>
+                                    <binding destination="Voe-Tx-rLC" name="enabled" keyPath="self.window.searchProcess" id="5Hc-da-I0E">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Моя музыка" keyEquivalent="m" id="AzG-M5-79p">
+                                <connections>
+                                    <action selector="clickMyMusic:" target="QvC-M9-y7g" id="DEs-7U-49u"/>
+                                    <binding destination="Voe-Tx-rLC" name="enabled" keyPath="self.window.searchProcess" id="rBh-40-ACq">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Рекомендации" keyEquivalent="r" id="5UA-uh-DBI">
+                                <connections>
+                                    <action selector="clickRecommendations:" target="QvC-M9-y7g" id="g0z-wY-mOU"/>
+                                    <binding destination="Voe-Tx-rLC" name="enabled" keyPath="self.window.searchProcess" id="UBQ-rA-e4M">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <binding destination="Voe-Tx-rLC" name="enabled" keyPath="self.window.altSearchButton.enabled" id="ZUf-uZ-HXj"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Плеер" id="ftg-nj-Vfm">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Плеер" id="egU-Ql-kBO">
+                        <items>
+                            <menuItem title="Добавить в ВКонтакте" keyEquivalent="=" id="V0a-7x-ebe">
+                                <connections>
+                                    <action selector="clickPlayerAddToVK:" target="QvC-M9-y7g" id="2pa-tw-X8U"/>
+                                    <binding destination="Voe-Tx-rLC" name="enabled" keyPath="self.window.playerAddToVKButton.enabled" id="PkL-a3-h4d"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Скачать текущий трек" id="cax-x5-WAn">
+                                <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                <connections>
+                                    <action selector="clickPlayerDownload:" target="QvC-M9-y7g" id="5dc-TD-0qV"/>
+                                    <binding destination="Voe-Tx-rLC" name="enabled" keyPath="self.window.playerDownloadButton.enabled" id="jPO-EF-Ltx"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="M1d-rk-0HV"/>
+                            <menuItem title="Предыдущий трек" keyEquivalent="" id="vwV-RC-Sl0">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="clickPlayerPrev:" target="QvC-M9-y7g" id="1k1-RM-IA5"/>
+                                    <binding destination="Voe-Tx-rLC" name="enabled" keyPath="self.window.playerPrevButton.enabled" id="ZZa-Ee-kok"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Пауза / Воспроизведение" keyEquivalent="" id="Jep-vD-41R">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="clickPlayerPlayPause:" target="QvC-M9-y7g" id="qQ5-vX-sms"/>
+                                    <binding destination="Voe-Tx-rLC" name="enabled" keyPath="self.window.playerPlayPauseButton.enabled" id="toY-fZ-rpY"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Следующий трек" keyEquivalent="" id="PDc-Yt-Q7q">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="clickPlayerNext:" target="QvC-M9-y7g" id="YnE-cG-BE3"/>
+                                    <binding destination="Voe-Tx-rLC" name="enabled" keyPath="self.window.playerNextButton.enabled" id="WBX-j6-1ni"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Загрузки" id="xea-bj-UeS">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Загрузки" id="Vhx-V7-G8J">
+                        <items>
+                            <menuItem title="Загрузить выделенные аудиозаписи" id="H5G-OI-tsC">
+                                <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
+                                <connections>
+                                    <action selector="clickDownloadTheList:" target="QvC-M9-y7g" id="ncl-cw-D5g"/>
+                                    <binding destination="Voe-Tx-rLC" name="enabled" keyPath="self.window.AddListButton.enabled" id="2Yp-vw-EQR"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="4M2-Jl-nZN"/>
+                            <menuItem title="Запустить выбранные" keyEquivalent="S" id="qB3-ZB-vAH">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES"/>
+                                <connections>
+                                    <action selector="clickDownloadsStartButton:" target="QvC-M9-y7g" id="gR8-hx-SC5"/>
+                                    <binding destination="Voe-Tx-rLC" name="enabled" keyPath="self.window.downloadsStartButton.enabled" id="kqJ-P2-Lje"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Остановить выбранные" keyEquivalent="P" id="QMV-Mm-Yvi">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES"/>
+                                <connections>
+                                    <action selector="clickDownloadsPauseButton:" target="QvC-M9-y7g" id="jac-Pi-V3o"/>
+                                    <binding destination="Voe-Tx-rLC" name="enabled" keyPath="self.window.downloadsPauseButton.enabled" id="Z5F-gw-RPC"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Очистить выбранные" id="oHf-oi-PBp">
+                                <string key="keyEquivalent" base64-UTF8="YES">
+CA
+</string>
+                                <modifierMask key="keyEquivalentModifierMask" shift="YES" option="YES"/>
+                                <connections>
+                                    <action selector="clickDownloadsRemoveButton:" target="QvC-M9-y7g" id="a7C-gr-916"/>
+                                    <binding destination="Voe-Tx-rLC" name="enabled" keyPath="self.window.downloadsRemoveButton.enabled" id="1tA-vc-Yt1"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="deL-wJ-WLO"/>
+                            <menuItem title="Запустить все" keyEquivalent="S" id="P58-j1-RLq">
+                                <connections>
+                                    <action selector="startAllDownloads:" target="QvC-M9-y7g" id="A4i-rh-QfH"/>
+                                    <binding destination="Voe-Tx-rLC" name="enabled" keyPath="self.window.downloadsMenuOperationsEnabled" id="jIX-I4-7Ns"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Остановить все" keyEquivalent="P" id="jBD-wd-m5S">
+                                <connections>
+                                    <action selector="pauseAllDownloads:" target="QvC-M9-y7g" id="P9h-hw-UOM"/>
+                                    <binding destination="Voe-Tx-rLC" name="enabled" keyPath="self.window.downloadsMenuOperationsEnabled" id="atc-fj-2D0"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Очистить все" id="UYz-uZ-Diu">
+                                <string key="keyEquivalent" base64-UTF8="YES">
+CA
+</string>
+                                <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
+                                <connections>
+                                    <action selector="removeAllDownloads:" target="QvC-M9-y7g" id="NPV-Dv-jY0"/>
+                                    <binding destination="Voe-Tx-rLC" name="enabled" keyPath="self.window.downloadsMenuOperationsEnabled" id="dRa-XZ-ABn"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Окно" id="alp-vc-bwS">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Окно" systemMenu="window" id="WVn-B0-wCu">
+                        <items>
+                            <menuItem title="Убрать в Dock" keyEquivalent="m" id="8Va-jo-wLM">
+                                <connections>
+                                    <action selector="performMiniaturize:" target="-1" id="Y8H-9I-VuM"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Закрыть окно" keyEquivalent="w" id="e8A-hk-s0Y">
+                                <connections>
+                                    <action selector="performClose:" target="-1" id="NAM-yY-HYg"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Полноэкранный режим" keyEquivalent="f" id="4HG-Jc-yqn">
+                                <connections>
+                                    <action selector="toggleFullScreen:" target="-1" id="ocd-WB-WPC"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Изменить масштаб" id="Clz-ZH-lbg">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="performZoom:" target="-1" id="i8D-0j-L9F"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="zay-8r-B17"/>
+                            <menuItem title="Все окна - на передний план" id="nR5-Ab-3oz">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="arrangeInFront:" target="-1" id="7uO-2V-3MI"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+            </items>
+        </menu>
+        <window title="VK320" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" frameAutosaveName="VK320" animationBehavior="default" id="QvC-M9-y7g" customClass="RSMainWindow">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="0.0" y="380" width="918" height="490"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+            <value key="minSize" type="size" width="918" height="490"/>
+            <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
+                <rect key="frame" x="0.0" y="0.0" width="918" height="490"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <splitView dividerStyle="thin" id="yki-bf-pSi">
+                        <rect key="frame" x="0.0" y="35" width="918" height="406"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="21" horizontalPageScroll="10" verticalLineScroll="21" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Cgs-of-zrL">
+                                <rect key="frame" x="0.0" y="0.0" width="918" height="277"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <clipView key="contentView" id="BRV-jo-VPT">
+                                    <rect key="frame" x="0.0" y="17" width="841" height="281"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" autosaveColumns="NO" rowSizeStyle="automatic" headerView="Lgj-hF-lqD" viewBased="YES" id="GGW-gu-wb3" customClass="RSResultsTableView">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <size key="intercellSpacing" width="3" height="4"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                            <tableColumns>
+                                                <tableColumn identifier="Artist" width="310" minWidth="40" maxWidth="1000" id="YCx-K3-tcb">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Исполнитель">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="s4C-pj-be1">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="artist"/>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView id="qB9-6H-IdZ" customClass="RSTextCell">
+                                                            <rect key="frame" x="1" y="2" width="310" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="l48-99-7S0">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="310" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Unai" id="1LY-oE-A09">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="textField" destination="l48-99-7S0" id="fJB-hv-2Xq"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                                <tableColumn identifier="Title" width="300" minWidth="40" maxWidth="1000" id="TzE-YI-v6A">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Название">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="Rsk-ID-Jwh">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="title"/>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView id="Ma8-9j-OVj" customClass="RSTextCell">
+                                                            <rect key="frame" x="314" y="2" width="300" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="WpQ-lo-Lwx">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="I Like Your Style" id="iKv-PR-Oh9">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="textField" destination="WpQ-lo-Lwx" id="P7p-nb-fs4"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                                <tableColumn identifier="Duration" width="70" minWidth="70" maxWidth="100" id="zH8-Qm-mjr">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Время">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="Wst-7A-Y24">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="duration"/>
+                                                    <tableColumnResizingMask key="resizingMask" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView id="ISa-fP-hx7" customClass="RSTextCell">
+                                                            <rect key="frame" x="540" y="2" width="70" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="aKc-Yk-7GC">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="70" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="6:43" id="gj6-0H-cTr">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="textField" destination="aKc-Yk-7GC" id="7CO-RW-c7r"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                                <tableColumn identifier="Kbps" width="70" minWidth="70" maxWidth="100" id="rsG-CA-KKo">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Битрейт">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="iA2-hP-6av">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="kbps"/>
+                                                    <tableColumnResizingMask key="resizingMask" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView id="hqB-RV-lvx" customClass="RSTextCell">
+                                                            <rect key="frame" x="613" y="2" width="70" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="0MB-Ac-Vgp">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="70" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="320 Kbps" id="a4k-6x-ZZV">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="textField" destination="0MB-Ac-Vgp" id="AyA-Yr-CjY"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                                <tableColumn identifier="Size" width="80" minWidth="70" maxWidth="100" id="0Yw-31-Ucp">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Размер">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="Bvm-8z-eXk">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="size"/>
+                                                    <tableColumnResizingMask key="resizingMask" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView id="SYO-Ct-9T7" customClass="RSTextCell">
+                                                            <rect key="frame" x="686" y="2" width="80" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="lYe-vm-7xm">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="15.3 Mb" id="zIm-5b-Y58">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="textField" destination="lYe-vm-7xm" id="Ci9-yK-arV"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                                <tableColumn identifier="Actions" width="70" minWidth="70" maxWidth="70" id="ivZ-BR-zLt">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="og6-CN-DBZ">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <prototypeCellViews>
+                                                        <tableCellView id="I1o-ED-W7l" customClass="RSActionsCell">
+                                                            <rect key="frame" x="769" y="2" width="70" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <button id="gK9-nz-U7q">
+                                                                    <rect key="frame" x="5" y="0.0" width="20" height="15"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="a_play@black" imagePosition="overlaps" alignment="center" alternateImage="a_play@gray" inset="2" id="4BC-i0-ac3">
+                                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                        <font key="font" metaFont="system"/>
+                                                                    </buttonCell>
+                                                                    <connections>
+                                                                        <action selector="clickOnPlayButton:" target="I1o-ED-W7l" id="UPU-4a-mj9"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button toolTip="Скачать" id="pnt-Nz-SXc">
+                                                                    <rect key="frame" x="30" y="0.0" width="20" height="15"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="a_download@black" imagePosition="overlaps" alignment="center" alternateImage="a_download@gray" inset="2" id="9aR-Ud-JCs">
+                                                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                                        <font key="font" metaFont="system"/>
+                                                                    </buttonCell>
+                                                                    <connections>
+                                                                        <action selector="clickOnDownloadButton:" target="I1o-ED-W7l" id="atz-A1-LnH"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="downloadButton" destination="pnt-Nz-SXc" id="ccc-bB-tN0"/>
+                                                                <outlet property="playButton" destination="gK9-nz-U7q" id="Qdi-BY-Gdk"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                            </tableColumns>
+                                            <connections>
+                                                <outlet property="dataSource" destination="QvC-M9-y7g" id="tiz-EY-5Qz"/>
+                                                <outlet property="delegate" destination="QvC-M9-y7g" id="OBa-6J-t2E"/>
+                                            </connections>
+                                        </tableView>
+                                    </subviews>
+                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="tB2-aM-x5L">
+                                    <rect key="frame" x="1" y="266" width="841" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="ffY-pJ-7yG">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <tableHeaderView key="headerView" id="Lgj-hF-lqD">
+                                    <rect key="frame" x="0.0" y="0.0" width="841" height="17"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableHeaderView>
+                            </scrollView>
+                            <customView id="xPb-Ii-DLq">
+                                <rect key="frame" x="0.0" y="278" width="918" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                <subviews>
+                                    <scrollView autohidesScrollers="YES" horizontalLineScroll="21" horizontalPageScroll="10" verticalLineScroll="21" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="7Gp-tG-Ngh">
+                                        <rect key="frame" x="-1" y="0.0" width="920" height="129"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <clipView key="contentView" id="1UT-0R-Abt">
+                                            <rect key="frame" x="1" y="17" width="841" height="120"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" autosaveColumns="NO" rowSizeStyle="automatic" headerView="vcQ-r6-hHY" viewBased="YES" id="aKq-2E-6bU">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <size key="intercellSpacing" width="3" height="4"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                                    <tableColumns>
+                                                        <tableColumn identifier="File" width="616" minWidth="40" maxWidth="2000" id="Oks-li-sWz">
+                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Файл">
+                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </tableHeaderCell>
+                                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="dyL-wi-bBx">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                            <prototypeCellViews>
+                                                                <tableCellView id="pmo-cY-yng" customClass="RSTextCell">
+                                                                    <rect key="frame" x="1" y="2" width="616" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                    <subviews>
+                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="9td-jd-03L">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="616" height="17"/>
+                                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="/Users/romansilin/Downloads/Unai - I Like Your Style.mp3" id="KhJ-yf-0uT">
+                                                                                <font key="font" metaFont="system"/>
+                                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                            </textFieldCell>
+                                                                        </textField>
+                                                                    </subviews>
+                                                                    <connections>
+                                                                        <outlet property="textField" destination="9td-jd-03L" id="GYv-WZ-kEJ"/>
+                                                                    </connections>
+                                                                </tableCellView>
+                                                            </prototypeCellViews>
+                                                        </tableColumn>
+                                                        <tableColumn identifier="Duration" width="70" minWidth="70" maxWidth="100" id="RRe-V6-6nz">
+                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Время">
+                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </tableHeaderCell>
+                                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="NrS-ij-Cng">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <tableColumnResizingMask key="resizingMask" userResizable="YES"/>
+                                                            <prototypeCellViews>
+                                                                <tableCellView id="WRG-sh-mVj" customClass="RSTextCell">
+                                                                    <rect key="frame" x="543" y="2" width="70" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                    <subviews>
+                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="Cg3-6o-hNj">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="17"/>
+                                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="6:43" id="vfO-On-t3H">
+                                                                                <font key="font" metaFont="system"/>
+                                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                            </textFieldCell>
+                                                                        </textField>
+                                                                    </subviews>
+                                                                    <connections>
+                                                                        <outlet property="textField" destination="Cg3-6o-hNj" id="IsB-sk-v6B"/>
+                                                                    </connections>
+                                                                </tableCellView>
+                                                            </prototypeCellViews>
+                                                        </tableColumn>
+                                                        <tableColumn identifier="Kbps" width="70" minWidth="70" maxWidth="100" id="yIp-X0-bN8">
+                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Битрейт">
+                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                            </tableHeaderCell>
+                                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="WP7-va-zeM">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <tableColumnResizingMask key="resizingMask" userResizable="YES"/>
+                                                            <prototypeCellViews>
+                                                                <tableCellView id="u7x-SB-uZY" customClass="RSTextCell">
+                                                                    <rect key="frame" x="616" y="2" width="70" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                    <subviews>
+                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="EcJ-sd-1gL">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="17"/>
+                                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="320 Kbps" id="j16-2v-z9h">
+                                                                                <font key="font" metaFont="system"/>
+                                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                            </textFieldCell>
+                                                                        </textField>
+                                                                    </subviews>
+                                                                    <connections>
+                                                                        <outlet property="textField" destination="EcJ-sd-1gL" id="n2n-VE-hx7"/>
+                                                                    </connections>
+                                                                </tableCellView>
+                                                            </prototypeCellViews>
+                                                        </tableColumn>
+                                                        <tableColumn identifier="DownloadBar" width="150" minWidth="150" maxWidth="500" id="bft-Y6-3rT">
+                                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Загрузка">
+                                                                <font key="font" metaFont="smallSystem"/>
+                                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                            </tableHeaderCell>
+                                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="jd0-zA-GPo">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <tableColumnResizingMask key="resizingMask" userResizable="YES"/>
+                                                            <prototypeCellViews>
+                                                                <tableCellView id="EeT-Yt-cQg" customClass="RSDownloadCell">
+                                                                    <rect key="frame" x="689" y="2" width="150" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                    <subviews>
+                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="m5M-Sz-NCM">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="17"/>
+                                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="6.22/15.34 Mb" id="w7H-wi-utN">
+                                                                                <font key="font" metaFont="system"/>
+                                                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                            </textFieldCell>
+                                                                        </textField>
+                                                                    </subviews>
+                                                                    <connections>
+                                                                        <outlet property="sizeField" destination="m5M-Sz-NCM" id="rTf-4j-sWN"/>
+                                                                        <outlet property="textField" destination="m5M-Sz-NCM" id="muR-N4-eTD"/>
+                                                                    </connections>
+                                                                </tableCellView>
+                                                            </prototypeCellViews>
+                                                        </tableColumn>
+                                                    </tableColumns>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="QvC-M9-y7g" id="6ss-pH-7Vc"/>
+                                                        <outlet property="delegate" destination="QvC-M9-y7g" id="gdP-dn-GCD"/>
+                                                    </connections>
+                                                </tableView>
+                                            </subviews>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </clipView>
+                                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Cwq-PZ-SQ0">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="mY5-1O-M0G">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </scroller>
+                                        <tableHeaderView key="headerView" id="vcQ-r6-hHY">
+                                            <rect key="frame" x="0.0" y="0.0" width="841" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableHeaderView>
+                                    </scrollView>
+                                </subviews>
+                            </customView>
+                        </subviews>
+                        <holdingPriorities>
+                            <real value="250"/>
+                            <real value="250"/>
+                        </holdingPriorities>
+                        <connections>
+                            <outlet property="delegate" destination="QvC-M9-y7g" id="4WA-TE-e0x"/>
+                        </connections>
+                    </splitView>
+                    <button toolTip="Запустить загрузку" verticalHuggingPriority="750" id="E4e-V9-FK6" customClass="HoverButtonView">
+                        <rect key="frame" x="814" y="6" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="start@gray" imagePosition="only" alignment="center" alternateImage="start@blue" enabled="NO" inset="2" id="9Zs-8w-C6g">
+                            <behavior key="behavior" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="clickDownloadsStartButton:" target="QvC-M9-y7g" id="sci-JP-UXW"/>
+                        </connections>
+                    </button>
+                    <button toolTip="Поставить загрузку на паузу" verticalHuggingPriority="750" id="qVK-c0-3Dv" customClass="HoverButtonView">
+                        <rect key="frame" x="849" y="6" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="pause_download@gray" imagePosition="only" alignment="center" alternateImage="pause_download@blue" enabled="NO" inset="2" id="4up-T6-CJy">
+                            <behavior key="behavior" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="clickDownloadsPauseButton:" target="QvC-M9-y7g" id="GjJ-1X-nNX"/>
+                        </connections>
+                    </button>
+                    <button toolTip="Отменить загрузку" verticalHuggingPriority="750" id="mbg-ne-aRs" customClass="HoverButtonView">
+                        <rect key="frame" x="884" y="6" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="delete@gray" imagePosition="only" alignment="center" alternateImage="delete@red" enabled="NO" inset="2" id="aN2-0u-YaA">
+                            <behavior key="behavior" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="clickDownloadsRemoveButton:" target="QvC-M9-y7g" id="42E-5C-Nss"/>
+                        </connections>
+                    </button>
+                    <button toolTip="Выбрать все" verticalHuggingPriority="750" id="fVl-Yi-t0L" customClass="HoverButtonView">
+                        <rect key="frame" x="777" y="6" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="select@gray" imagePosition="only" alignment="center" alternateImage="select@blue" enabled="NO" inset="2" id="9Ez-a9-HLy">
+                            <behavior key="behavior" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="clickDownloadsSelectAllButton:" target="QvC-M9-y7g" id="FTL-N7-Llp"/>
+                        </connections>
+                    </button>
+                    <button id="6Xg-Kd-bTh" customClass="HoverButtonView">
+                        <rect key="frame" x="11" y="8" width="116" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <buttonCell key="cell" type="bevel" title="Нравится VK320?" bezelStyle="regularSquare" alignment="left" imageScaling="proportionallyDown" inset="2" id="Xm7-nj-4lQ">
+                            <behavior key="behavior" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="sayThanx:" target="QvC-M9-y7g" id="QNj-qY-tVS"/>
+                        </connections>
+                    </button>
+                    <customView id="6a9-bp-cs6" customClass="RSAlertView">
+                        <rect key="frame" x="259" y="0.0" width="400" height="35"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    </customView>
+                    <textField verticalHuggingPriority="750" id="Hfo-qI-pJb">
+                        <rect key="frame" x="46" y="454" width="314" height="22"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" state="on" borderStyle="bezel" alignment="left" placeholderString="Что будем искать?" bezelStyle="round" id="VfL-od-lr8">
+                            <font key="font" metaFont="cellTitle"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <action selector="searchFieldEnterPressed:" target="QvC-M9-y7g" id="ghv-56-cbJ"/>
+                        </connections>
+                    </textField>
+                    <button toolTip="Настройки" id="0bf-vr-16z" customClass="HoverButtonView">
+                        <rect key="frame" x="11" y="454" width="22" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="options@gray" imagePosition="only" alignment="center" alternateImage="options@blue" inset="2" id="ulA-61-7ZD">
+                            <behavior key="behavior" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="activateSheet:" target="Voe-Tx-rLC" id="sWp-1z-IKE"/>
+                        </connections>
+                    </button>
+                    <webView id="ffe-Vj-moJ">
+                        <rect key="frame" x="142" y="0.0" width="104" height="53"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12">
+                            <nil key="identifier"/>
+                        </webPreferences>
+                        <connections>
+                            <outlet property="frameLoadDelegate" destination="QvC-M9-y7g" id="Gdo-hZ-1v8"/>
+                        </connections>
+                    </webView>
+                    <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" id="OAb-MT-cWx" customClass="LADSlider">
+                        <rect key="frame" x="877" y="452" width="21" height="27"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                        <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="80" tickMarkPosition="left" sliderType="linear" id="ZCu-r1-Qnz" customClass="LADSliderCell"/>
+                    </slider>
+                    <button horizontalHuggingPriority="750" verticalHuggingPriority="750" id="3oj-7J-90G" customClass="HoverButtonView">
+                        <rect key="frame" x="414" y="449" width="32" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="circular" image="play@gray" imagePosition="only" alignment="center" alternateImage="play@blue" enabled="NO" id="2Zi-fT-mdP">
+                            <behavior key="behavior" lightByContents="YES"/>
+                            <font key="font" metaFont="label"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="clickPlayerPlayPause:" target="QvC-M9-y7g" id="vNK-Rh-cIT"/>
+                        </connections>
+                    </button>
+                    <button horizontalHuggingPriority="750" verticalHuggingPriority="750" id="rhg-3V-Rsp" customClass="HoverButtonView">
+                        <rect key="frame" x="452" y="449" width="32" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="circular" image="next@gray" imagePosition="only" alignment="center" alternateImage="next@blue" id="I3u-QC-p5Z">
+                            <behavior key="behavior" lightByContents="YES"/>
+                            <font key="font" metaFont="label"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="clickPlayerNext:" target="QvC-M9-y7g" id="EAD-hX-KNv"/>
+                        </connections>
+                    </button>
+                    <button horizontalHuggingPriority="750" verticalHuggingPriority="750" id="RCZ-AS-L5g" customClass="HoverButtonView">
+                        <rect key="frame" x="376" y="449" width="32" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="circular" image="back@gray" imagePosition="only" alignment="center" alternateImage="back@blue" enabled="NO" id="ab2-yf-WvZ">
+                            <behavior key="behavior" lightByContents="YES"/>
+                            <font key="font" metaFont="label"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="clickPlayerPrev:" target="QvC-M9-y7g" id="zaV-rU-9TR"/>
+                        </connections>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="nlB-Ck-gD4">
+                        <rect key="frame" x="489" y="450" width="40" height="12"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="-:--" id="wiu-VY-zBq">
+                            <font key="font" metaFont="miniSystem"/>
+                            <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="UWk-2U-bmD">
+                        <rect key="frame" x="720" y="451" width="40" height="11"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="-:--" id="RVj-2m-qET">
+                            <font key="font" metaFont="miniSystem"/>
+                            <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button toolTip="Добавить текущую аудиозапись в ВК" verticalHuggingPriority="750" id="7Q9-HT-S8h" customClass="HoverButtonView">
+                        <rect key="frame" x="839" y="449" width="32" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="plus@gray" imagePosition="only" alignment="center" alternateImage="plus@blue" enabled="NO" inset="2" id="cfb-81-JEp">
+                            <behavior key="behavior" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="clickPlayerAddToVK:" target="QvC-M9-y7g" id="bYQ-9o-aPQ"/>
+                        </connections>
+                    </button>
+                    <button toolTip="Скачать текущую аудиозапись" verticalHuggingPriority="750" id="STt-WH-qNA" customClass="HoverButtonView">
+                        <rect key="frame" x="799" y="449" width="32" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="download@gray" imagePosition="only" alignment="center" alternateImage="download@blue" enabled="NO" inset="2" id="ZcP-os-JUP">
+                            <behavior key="behavior" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="clickPlayerDownload:" target="QvC-M9-y7g" id="kkB-9I-aUl"/>
+                        </connections>
+                    </button>
+                    <button toolTip="Случайный порядок воспроизведения" verticalHuggingPriority="750" id="gTr-a3-YhE">
+                        <rect key="frame" x="769" y="448" width="16" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="shuffle@gray" imagePosition="only" alignment="center" alternateImage="shuffle@blue" inset="2" id="Y4E-gI-KSH">
+                            <behavior key="behavior" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="clickShuffle:" target="QvC-M9-y7g" id="2Hx-5O-gBO"/>
+                        </connections>
+                    </button>
+                    <button toolTip="Транслировать музыку в ВК" verticalHuggingPriority="750" id="Xrp-ib-FrH">
+                        <rect key="frame" x="768" y="466" width="16" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="broadcast@gray" imagePosition="only" alignment="center" alternateImage="broadcast@blue" inset="2" id="IkY-dG-uvK">
+                            <behavior key="behavior" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="clickBroadcast:" target="QvC-M9-y7g" id="ZBa-NT-lZU"/>
+                        </connections>
+                    </button>
+                    <slider verticalHuggingPriority="750" id="pf4-P0-cm5" customClass="LADSlider">
+                        <rect key="frame" x="532" y="446" width="185" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                        <sliderCell key="cell" continuous="YES" enabled="NO" state="on" alignment="left" maxValue="100" tickMarkPosition="above" sliderType="linear" id="n3Q-Es-Szd" customClass="LADSliderCell"/>
+                    </slider>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="E9C-RF-jab">
+                        <rect key="frame" x="895" y="450" width="11" height="31"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="volume_isons" id="hd8-PF-DeE"/>
+                    </imageView>
+                    <customView id="eRe-9p-PP3" customClass="ScrollingTextView">
+                        <rect key="frame" x="492" y="469" width="266" height="15"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    </customView>
+                    <customView id="Dp7-c9-Zx1">
+                        <rect key="frame" x="55" y="456" width="282" height="18"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <subviews>
+                            <button id="foh-H9-Zfz" customClass="HoverButtonView">
+                                <rect key="frame" x="-2" y="0.0" width="90" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="bevel" title="По ссылке" bezelStyle="regularSquare" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="WNN-5L-90m">
+                                    <behavior key="behavior" lightByContents="YES"/>
+                                    <font key="font" metaFont="cellTitle"/>
+                                    <connections>
+                                        <action selector="clickLinkInfo:" target="QvC-M9-y7g" id="AgB-uV-xlt"/>
+                                    </connections>
+                                </buttonCell>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="needHandCursor" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button id="eGs-Cx-Om7" customClass="HoverButtonView">
+                                <rect key="frame" x="83" y="0.0" width="90" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="bevel" title="Моя музыка" bezelStyle="regularSquare" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="yvQ-AF-sRv">
+                                    <behavior key="behavior" lightByContents="YES"/>
+                                    <font key="font" metaFont="cellTitle"/>
+                                </buttonCell>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="needHandCursor" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickMyMusic:" target="QvC-M9-y7g" id="83a-i6-ehg"/>
+                                </connections>
+                            </button>
+                            <button id="vL1-Ou-hwV" customClass="HoverButtonView">
+                                <rect key="frame" x="175" y="0.0" width="100" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="bevel" title="Рекомендации" bezelStyle="regularSquare" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="Ccu-VX-ZgQ">
+                                    <behavior key="behavior" lightByContents="YES"/>
+                                    <font key="font" metaFont="cellTitle"/>
+                                </buttonCell>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="needHandCursor" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickRecommendations:" target="QvC-M9-y7g" id="tsV-Ds-uOL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </customView>
+                    <imageView hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="XZB-Cj-A95">
+                        <rect key="frame" x="338" y="457" width="16" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" image="processing" id="heB-fS-grZ"/>
+                    </imageView>
+                    <button toolTip="Меню запросов" id="wsf-rE-zGu" customClass="HoverButtonView">
+                        <rect key="frame" x="335" y="457" width="22" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="altsearch@gray" imagePosition="only" alignment="center" alternateImage="altsearch@blue" imageScaling="proportionallyDown" inset="2" id="Wii-BV-vIK">
+                            <behavior key="behavior" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="self.needHandCursor" value="NO"/>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="clickAltSearchButton:" target="QvC-M9-y7g" id="6ix-8d-OqZ"/>
+                            <binding destination="Voe-Tx-rLC" name="enabled" keyPath="self.window.access_token" id="71t-xf-DZm">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSIsNotNil</string>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </button>
+                    <button toolTip="Добавить в загрузки выделенный список" verticalHuggingPriority="750" id="hyV-n4-YPB" customClass="HoverButtonView">
+                        <rect key="frame" x="715" y="6" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="addlist@gray" imagePosition="only" alignment="center" alternateImage="addlist@blue" enabled="NO" inset="2" id="8zA-Iu-C7d">
+                            <behavior key="behavior" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="clickDownloadTheList:" target="QvC-M9-y7g" id="whx-nk-J2S"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <connections>
+                <outlet property="AddListButton" destination="hyV-n4-YPB" id="Xzx-iI-lSL"/>
+                <outlet property="alertView" destination="6a9-bp-cs6" id="iHS-fp-WEa"/>
+                <outlet property="altSearchButton" destination="wsf-rE-zGu" id="ieL-uR-wg2"/>
+                <outlet property="altSearchView" destination="Dp7-c9-Zx1" id="s8G-wv-oKF"/>
+                <outlet property="broadcastButton" destination="Xrp-ib-FrH" id="x6k-ng-vyh"/>
+                <outlet property="downloadsPauseButton" destination="qVK-c0-3Dv" id="ffv-sJ-vus"/>
+                <outlet property="downloadsRemoveButton" destination="mbg-ne-aRs" id="Sma-I6-t3n"/>
+                <outlet property="downloadsScrollView" destination="7Gp-tG-Ngh" id="vg2-Ve-96W"/>
+                <outlet property="downloadsSelectAllButton" destination="fVl-Yi-t0L" id="ixF-Np-VAR"/>
+                <outlet property="downloadsStartButton" destination="E4e-V9-FK6" id="wSg-PG-4TX"/>
+                <outlet property="downloadsTableView" destination="aKq-2E-6bU" id="BB8-vr-EKl"/>
+                <outlet property="downloadsView" destination="xPb-Ii-DLq" id="QvQ-9B-9n9"/>
+                <outlet property="likeButton" destination="6Xg-Kd-bTh" id="baD-g5-0p0"/>
+                <outlet property="playerAddToVKButton" destination="7Q9-HT-S8h" id="RQk-8N-SAq"/>
+                <outlet property="playerDownloadButton" destination="STt-WH-qNA" id="77P-xM-Jbo"/>
+                <outlet property="playerNextButton" destination="rhg-3V-Rsp" id="V73-e5-sPd"/>
+                <outlet property="playerPlayPauseButton" destination="3oj-7J-90G" id="gc9-u6-IuM"/>
+                <outlet property="playerPrevButton" destination="RCZ-AS-L5g" id="9oc-pe-jwC"/>
+                <outlet property="playerShuffleButton" destination="gTr-a3-YhE" id="sFJ-Gh-Ccc"/>
+                <outlet property="playerTime1" destination="nlB-Ck-gD4" id="WVc-RJ-8K2"/>
+                <outlet property="playerTime2" destination="UWk-2U-bmD" id="JgP-C6-7XN"/>
+                <outlet property="playerTrackSlider" destination="pf4-P0-cm5" id="CUz-vJ-IdG"/>
+                <outlet property="playerVolumeSlider" destination="OAb-MT-cWx" id="RXB-qc-veO"/>
+                <outlet property="resultsScrollView" destination="Cgs-of-zrL" id="QAL-0T-Ly6"/>
+                <outlet property="resultsTableView" destination="GGW-gu-wb3" id="UcP-Au-ONA"/>
+                <outlet property="searchField" destination="Hfo-qI-pJb" id="SJQ-l4-r3e"/>
+                <outlet property="searchProcessAnimatedIcon" destination="XZB-Cj-A95" id="HGK-1N-y4i"/>
+                <outlet property="splitView" destination="yki-bf-pSi" id="Pli-dr-ddg"/>
+                <outlet property="trackTitle" destination="eRe-9p-PP3" id="1vB-sL-zGE"/>
+                <outlet property="webView" destination="ffe-Vj-moJ" id="Dxa-Bt-0ua"/>
+            </connections>
+            <point key="canvasLocation" x="502" y="422"/>
+        </window>
+        <window title="Настройки" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="k56-0Q-D7U" customClass="RSOptionsWindow">
+            <windowStyleMask key="styleMask" titled="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="591" height="407"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+            <view key="contentView" id="hd4-NL-Lcz">
+                <rect key="frame" x="0.0" y="-1" width="591" height="407"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button verticalHuggingPriority="750" id="zba-Gb-ZPd">
+                        <rect key="frame" x="20" y="18" width="170" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="roundTextured" title="Скрыть настройки" bezelStyle="texturedRounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9Ty-TG-QHM">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="closeSheet:" target="Voe-Tx-rLC" id="3rn-KM-4Kt"/>
+                        </connections>
+                    </button>
+                    <textField verticalHuggingPriority="750" id="Y9X-JD-X58">
+                        <rect key="frame" x="160" y="365" width="380" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Выберите путь к папке для сохранения загрузок" drawsBackground="YES" id="wGV-Kl-pn0">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" id="A9z-0d-aem">
+                        <rect key="frame" x="160" y="335" width="46" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="30" drawsBackground="YES" id="KT2-Q2-VrS">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <action selector="checkValues:" target="k56-0Q-D7U" id="FAM-tD-tRz"/>
+                        </connections>
+                    </textField>
+                    <textField verticalHuggingPriority="750" id="ei2-Ll-IoT">
+                        <rect key="frame" x="160" y="275" width="46" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="5" drawsBackground="YES" id="5VF-4P-4Jy">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <action selector="checkValues:" target="k56-0Q-D7U" id="Vc2-fa-4kM"/>
+                        </connections>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="B1g-Zd-sr2">
+                        <rect key="frame" x="4" y="368" width="150" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Папка для загрузок:" id="OZR-vC-fbn">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="lvD-67-Xru">
+                        <rect key="frame" x="4" y="338" width="150" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Лимит поиска:" id="foE-dU-ofX">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="24u-Iv-pRS">
+                        <rect key="frame" x="4" y="278" width="150" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Лимит загрузок:" id="yLK-Q3-JeC">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="DAQ-Fv-gOb">
+                        <rect key="frame" x="212" y="339" width="352" height="14"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="(ограничение запроса поиска/рекомендаций, от 1 до 300)" id="8KR-AB-aRz">
+                            <font key="font" metaFont="smallSystem"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" id="l90-KB-T70">
+                        <rect key="frame" x="160" y="305" width="46" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="6000" drawsBackground="YES" id="UtD-RW-jac">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <action selector="checkValues:" target="k56-0Q-D7U" id="AhN-uL-N1R"/>
+                        </connections>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="yat-xs-CPW">
+                        <rect key="frame" x="4" y="308" width="150" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Лимит по id:" id="hHB-hM-Smv">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="wEe-yN-SKJ">
+                        <rect key="frame" x="212" y="309" width="315" height="14"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="(ограничение запроса аудиозаписей по id, от 1 до 6000)" id="sT0-Ab-4nX">
+                            <font key="font" metaFont="smallSystem"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" id="Qje-VU-DJW">
+                        <rect key="frame" x="320" y="248" width="66" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" alignment="left" title="320 Kbps" placeholderString="" id="nNv-dX-brO">
+                            <font key="font" metaFont="systemBold"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="gFr-VN-UTf">
+                        <rect key="frame" x="18" y="248" width="301" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Игнорировать результаты с битрейтом менее" id="rgf-kF-9zg">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="5DS-fE-gv7">
+                        <rect key="frame" x="212" y="279" width="275" height="14"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="(максимум одновременных загрузок, от 1 до 50)" id="3mQ-OZ-fE8">
+                            <font key="font" metaFont="smallSystem"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" id="PeE-R6-NWj">
+                        <rect key="frame" x="407" y="18" width="170" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="roundTextured" title="Сброс авторизации" bezelStyle="texturedRounded" image="NSLockUnlockedTemplate" imagePosition="right" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3zW-gz-aog">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="logout:" target="Voe-Tx-rLC" id="iks-UI-byU"/>
+                        </connections>
+                    </button>
+                    <button id="eNF-8A-aTR">
+                        <rect key="frame" x="539" y="365" width="32" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="square" title="..." bezelStyle="shadowlessSquare" image="C784107A-74E7-4958-996A-1B3A9ABE2E78" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Prt-Uk-NRJ">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="smallSystem"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="choosePath:" target="k56-0Q-D7U" id="IkZ-oq-tvm"/>
+                        </connections>
+                    </button>
+                    <button id="uEd-kJ-saf">
+                        <rect key="frame" x="158" y="167" width="273" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Полный путь к файлам в списке загрузок" bezelStyle="regularSquare" state="on" inset="2" id="Fgh-H1-BbR">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="kbd-VQ-iEx">
+                        <rect key="frame" x="158" y="192" width="368" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Хранить историю загрузок после закрытия программы" bezelStyle="regularSquare" state="on" inset="2" id="hVU-Hk-y9V">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="Rk5-nc-1w2">
+                        <rect key="frame" x="158" y="217" width="401" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Загружать по двойному клику (выкл. - воспроизвести)" bezelStyle="regularSquare" state="on" inset="2" id="wN2-ev-OCu">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="XLq-bU-v8L">
+                        <rect key="frame" x="158" y="142" width="357" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Автопереключение треков во время воспроизведения" bezelStyle="regularSquare" state="on" inset="2" id="cb6-es-Fy8">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="EZ2-Yz-dvP">
+                        <rect key="frame" x="158" y="117" width="356" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Исправление опечаток в поисковой фразе (vk.com)" bezelStyle="regularSquare" state="on" inset="2" id="jPR-sX-s8Z">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button id="M01-SJ-pxm" customClass="HoverButtonView">
+                        <rect key="frame" x="248" y="21" width="95" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <buttonCell key="cell" type="bevel" title="www.vk320.ru" bezelStyle="regularSquare" alignment="center" imageScaling="proportionallyDown" inset="2" id="gqB-Eq-HHV">
+                            <behavior key="behavior" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="self.needHandCursor" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="openWWW:" target="k56-0Q-D7U" id="bIJ-GW-bIr"/>
+                        </connections>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="AE8-lW-hbB">
+                        <rect key="frame" x="18" y="54" width="528" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="%username%" id="Gxh-13-hfm">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ZkL-C6-v4I">
+                        <rect key="frame" x="552" y="50" width="25" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSUserGuest" id="KhE-OJ-p3W"/>
+                    </imageView>
+                    <customView id="WhU-vb-2rJ" customClass="ITSwitch">
+                        <rect key="frame" x="123" y="217" width="29" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </customView>
+                    <customView id="3g6-G0-ZDl" customClass="ITSwitch">
+                        <rect key="frame" x="123" y="192" width="29" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </customView>
+                    <customView id="mzZ-Vh-ReL" customClass="ITSwitch">
+                        <rect key="frame" x="123" y="167" width="29" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </customView>
+                    <customView id="o7y-g7-pSl" customClass="ITSwitch">
+                        <rect key="frame" x="123" y="142" width="29" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </customView>
+                    <customView id="Sw7-aU-e95" customClass="ITSwitch">
+                        <rect key="frame" x="123" y="117" width="29" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </customView>
+                    <button id="k1P-tQ-4uC">
+                        <rect key="frame" x="158" y="92" width="356" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Проверка обновлений VK320 при запуске программы" bezelStyle="regularSquare" state="on" inset="2" id="m39-XC-MtO">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <customView id="j0c-zU-ijF" customClass="ITSwitch">
+                        <rect key="frame" x="123" y="92" width="29" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </customView>
+                    <slider toolTip="от 0 до 320 Kbps" verticalHuggingPriority="750" id="8bo-r0-2eL">
+                        <rect key="frame" x="390" y="242" width="183" height="27"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="10" doubleValue="10" tickMarkPosition="below" numberOfTickMarks="10" allowsTickMarkValuesOnly="YES" sliderType="linear" id="8fC-g8-f3Z">
+                            <connections>
+                                <action selector="checkValues:" target="k56-0Q-D7U" id="4DT-J8-PFV"/>
+                            </connections>
+                        </sliderCell>
+                    </slider>
+                </subviews>
+            </view>
+            <connections>
+                <outlet property="autoplayCheckbox" destination="o7y-g7-pSl" id="HZz-8v-Wpi"/>
+                <outlet property="avatarView" destination="ZkL-C6-v4I" id="F96-fh-a32"/>
+                <outlet property="checkUpdatesCheckbox" destination="j0c-zU-ijF" id="4PY-qs-mtG"/>
+                <outlet property="correctorCheckbox" destination="Sw7-aU-e95" id="Bbd-7R-uWq"/>
+                <outlet property="currentUser" destination="AE8-lW-hbB" id="niL-AB-lfL"/>
+                <outlet property="doubleClickCheckbox" destination="WhU-vb-2rJ" id="k0u-F3-qXp"/>
+                <outlet property="downloadsPathField" destination="Y9X-JD-X58" id="H5t-3D-lAN"/>
+                <outlet property="filterKbpsField" destination="Qje-VU-DJW" id="ffn-2h-VcT"/>
+                <outlet property="filterKbpsSlider" destination="8bo-r0-2eL" id="Hz7-Xt-Z6f"/>
+                <outlet property="fullPathCheckbox" destination="mzZ-Vh-ReL" id="3XP-Pk-o5z"/>
+                <outlet property="myMusicLimitField" destination="l90-KB-T70" id="wN8-Hz-rQk"/>
+                <outlet property="requestLimitField" destination="A9z-0d-aem" id="wxu-qG-xs4"/>
+                <outlet property="saveHistoryCheckbox" destination="3g6-G0-ZDl" id="Gcm-Uz-Rvj"/>
+                <outlet property="streamsLimitField" destination="ei2-Ll-IoT" id="0Bf-Mq-Qto"/>
+            </connections>
+            <point key="canvasLocation" x="1345.5" y="421.5"/>
+        </window>
+        <collectionViewItem id="mHA-qc-0BM"/>
+        <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <userDefaultsController representsSharedInstance="YES" id="fxZ-Nb-0bw"/>
+        <menuItem title="Item" id="uuk-m9-PYJ">
+            <modifierMask key="keyEquivalentModifierMask"/>
+        </menuItem>
+    </objects>
+    <resources>
+        <image name="C784107A-74E7-4958-996A-1B3A9ABE2E78" width="1" height="1">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
+GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
+c1dOU0NvbG9ygAKADRIgwwAAgAOAC1Z7MSwgMX3SFQoWGFpOUy5vYmplY3RzoReABIAK0hUKGh2iGxyA
+BYAGgAkQANIgCiEiXxAUTlNUSUZGUmVwcmVzZW50YXRpb26AB4AITxEIdE1NACoAAAAKAAAADgEAAAMA
+AAABAAEAAAEBAAMAAAABAAEAAAECAAMAAAACAAgACAEDAAMAAAABAAEAAAEGAAMAAAABAAEAAAERAAQA
+AAABAAAACAESAAMAAAABAAEAAAEVAAMAAAABAAIAAAEWAAMAAAABAAEAAAEXAAQAAAABAAAAAgEcAAMA
+AAABAAEAAAFSAAMAAAABAAEAAAFTAAMAAAACAAEAAYdzAAcAAAe8AAAAuAAAAAAAAAe8YXBwbAIgAABt
+bnRyR1JBWVhZWiAH0AACAA4ADAAAAABhY3NwQVBQTAAAAABub25lAAAAAAAAAAAAAAAAAAAAAAAA9tYA
+AQAAAADTLWFwcGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVk
+ZXNjAAAAwAAAAG9kc2NtAAABMAAABi5jcHJ0AAAHYAAAADh3dHB0AAAHmAAAABRrVFJDAAAHrAAAAA5k
+ZXNjAAAAAAAAABVHZW5lcmljIEdyYXkgUHJvZmlsZQAAAAAAAAAAAAAAFUdlbmVyaWMgR3JheSBQcm9m
+aWxlAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbWx1YwAAAAAA
+AAAeAAAADHNrU0sAAAAqAAABeGRhREsAAAA0AAABomNhRVMAAAAsAAAB1nB0QlIAAAAqAAACAnVrVUEA
+AAAsAAACLGZyRlUAAAAqAAACWGh1SFUAAAAuAAACgnpoVFcAAAAQAAACsG5iTk8AAAAsAAACwGNzQ1oA
+AAAkAAAC7GhlSUwAAAAgAAADEGl0SVQAAAAuAAADMHJvUk8AAAAkAAADXmRlREUAAAA6AAADgmtvS1IA
+AAAYAAADvHN2U0UAAAAuAAAD1HpoQ04AAAAQAAAEAmphSlAAAAAWAAAEEmVsR1IAAAAkAAAEKHB0UE8A
+AAA4AAAETG5sTkwAAAAqAAAEhGVzRVMAAAAoAAAErnRoVEgAAAAkAAAE1nRyVFIAAAAiAAAE+mZpRkkA
+AAAsAAAFHGhySFIAAAA6AAAFSHBsUEwAAAA2AAAFgnJ1UlUAAAAmAAAFuGFyRUcAAAAoAAAF3mVuVVMA
+AAAoAAAGBgBWAWEAZQBvAGIAZQBjAG4A/QAgAHMAaQB2AP0AIABwAHIAbwBmAGkAbABHAGUAbgBlAHIA
+ZQBsACAAZwByAOUAdABvAG4AZQBiAGUAcwBrAHIAaQB2AGUAbABzAGUAUABlAHIAZgBpAGwAIABkAGUA
+IABnAHIAaQBzACAAZwBlAG4A6AByAGkAYwBQAGUAcgBmAGkAbAAgAEMAaQBuAHoAYQAgAEcAZQBuAOkA
+cgBpAGMAbwQXBDAEMwQwBDsETAQ9BDgEOQAgBD8EQAQ+BEQEMAQ5BDsAIABHAHIAYQB5AFAAcgBvAGYA
+aQBsACAAZwDpAG4A6QByAGkAcQB1AGUAIABnAHIAaQBzAMEAbAB0AGEAbADhAG4AbwBzACAAcwB6APwA
+cgBrAGUAIABwAHIAbwBmAGkAbJAadShwcJaOgnJfaWPPj/AARwBlAG4AZQByAGkAcwBrACAAZwByAOUA
+dABvAG4AZQBwAHIAbwBmAGkAbABPAGIAZQBjAG4A/QAgAWEAZQBkAP0AIABwAHIAbwBmAGkAbAXkBegF
+1QXkBdkF3AAgAEcAcgBhAHkAIAXbBdwF3AXZAFAAcgBvAGYAaQBsAG8AIABnAHIAaQBnAGkAbwAgAGcA
+ZQBuAGUAcgBpAGMAbwBQAHIAbwBmAGkAbAAgAGcAcgBpACAAZwBlAG4AZQByAGkAYwBBAGwAbABnAGUA
+bQBlAGkAbgBlAHMAIABHAHIAYQB1AHMAdAB1AGYAZQBuAC0AUAByAG8AZgBpAGzHfLwYACAARwByAGEA
+eQAg1QS4XNMMx3wARwBlAG4AZQByAGkAcwBrACAAZwByAOUAcwBrAGEAbABlAHAAcgBvAGYAaQBsZm6Q
+GnBwXqZjz4/wZYdO9k4AgiwwsDDsMKQw1zDtMNUwoTCkMOsDkwO1A70DuQO6A8wAIAPAA8EDvwPGA68D
+uwAgA7MDugPBA7kAUABlAHIAZgBpAGwAIABnAGUAbgDpAHIAaQBjAG8AIABkAGUAIABjAGkAbgB6AGUA
+bgB0AG8AcwBBAGwAZwBlAG0AZQBlAG4AIABnAHIAaQBqAHMAcAByAG8AZgBpAGUAbABQAGUAcgBmAGkA
+bAAgAGcAcgBpAHMAIABnAGUAbgDpAHIAaQBjAG8OQg4bDiMORA4fDiUOTA4qDjUOQA4XDjIOFw4xDkgO
+Jw5EDhsARwBlAG4AZQBsACAARwByAGkAIABQAHIAbwBmAGkAbABpAFkAbABlAGkAbgBlAG4AIABoAGEA
+cgBtAGEAYQBwAHIAbwBmAGkAaQBsAGkARwBlAG4AZQByAGkBDQBrAGkAIABwAHIAbwBmAGkAbAAgAHMA
+aQB2AGkAaAAgAHQAbwBuAG8AdgBhAFUAbgBpAHcAZQByAHMAYQBsAG4AeQAgAHAAcgBvAGYAaQBsACAA
+cwB6AGEAcgBvAVsAYwBpBB4EMQRJBDgEOQAgBEEENQRABEsEOQAgBD8EQAQ+BEQEOAQ7BEwGRQZEBkEA
+IAYqBjkGMQZKBkEAIABHAHIAYQB5ACAGJwZEBjkGJwZFAEcAZQBuAGUAcgBpAGMAIABHAHIAYQB5ACAA
+UAByAG8AZgBpAGwAZQAAdGV4dAAAAABDb3B5cmlnaHQgMjAwNyBBcHBsZSBJbmMuLCBhbGwgcmlnaHRz
+IHJlc2VydmVkLgBYWVogAAAAAAAA81EAAQAAAAEWzGN1cnYAAAAAAAAAAQHNAADSJSYnKFokY2xhc3Nu
+YW1lWCRjbGFzc2VzXxAQTlNCaXRtYXBJbWFnZVJlcKMpKitfEBBOU0JpdG1hcEltYWdlUmVwWk5TSW1h
+Z2VSZXBYTlNPYmplY3TSJSYtLldOU0FycmF5oi0r0iUmMDFeTlNNdXRhYmxlQXJyYXmjMC0r0zM0CjU2
+N1dOU1doaXRlXE5TQ29sb3JTcGFjZUQwIDAAEAOADNIlJjk6V05TQ29sb3KiOSvSJSY8PVdOU0ltYWdl
+ojwrXxAPTlNLZXllZEFyY2hpdmVy0UBBVHJvb3SAAQAIABEAGgAjAC0AMgA3AEYATABXAF4AZQByAHkA
+gQCDAIUAigCMAI4AlQCaAKUApwCpAKsAsACzALUAtwC5ALsAwADXANkA2wlTCVgJYwlsCX8JgwmWCaEJ
+qgmvCbcJugm/Cc4J0gnZCeEJ7gnzCfUJ9wn8CgQKBwoMChQKFwopCiwKMQAAAAAAAAIBAAAAAAAAAEIA
+AAAAAAAAAAAAAAAAAAozA
+</mutableData>
+        </image>
+        <image name="NSLockUnlockedTemplate" width="10" height="14"/>
+        <image name="NSUserGuest" width="32" height="32"/>
+        <image name="a_download@black" width="20" height="15"/>
+        <image name="a_download@gray" width="20" height="15"/>
+        <image name="a_play@black" width="20" height="15"/>
+        <image name="a_play@gray" width="20" height="15"/>
+        <image name="addlist@blue" width="16" height="16"/>
+        <image name="addlist@gray" width="16" height="16"/>
+        <image name="altsearch@blue" width="16" height="16"/>
+        <image name="altsearch@gray" width="16" height="16"/>
+        <image name="back@blue" width="32" height="32"/>
+        <image name="back@gray" width="32" height="32"/>
+        <image name="broadcast@blue" width="16" height="16"/>
+        <image name="broadcast@gray" width="16" height="16"/>
+        <image name="delete@gray" width="16" height="16"/>
+        <image name="delete@red" width="16" height="16"/>
+        <image name="download@blue" width="22" height="22"/>
+        <image name="download@gray" width="22" height="22"/>
+        <image name="next@blue" width="32" height="32"/>
+        <image name="next@gray" width="32" height="32"/>
+        <image name="options@blue" width="22" height="22"/>
+        <image name="options@gray" width="22" height="22"/>
+        <image name="pause_download@blue" width="16" height="16"/>
+        <image name="pause_download@gray" width="16" height="16"/>
+        <image name="play@blue" width="32" height="32"/>
+        <image name="play@gray" width="32" height="32"/>
+        <image name="plus@blue" width="22" height="22"/>
+        <image name="plus@gray" width="22" height="22"/>
+        <image name="processing" width="16" height="16"/>
+        <image name="select@blue" width="16" height="16"/>
+        <image name="select@gray" width="16" height="16"/>
+        <image name="shuffle@blue" width="16" height="16"/>
+        <image name="shuffle@gray" width="16" height="16"/>
+        <image name="start@blue" width="16" height="16"/>
+        <image name="start@gray" width="16" height="16"/>
+        <image name="volume_isons" width="11" height="31"/>
+    </resources>
+</document>
